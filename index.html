@@ -41,6 +41,29 @@
             background: rgba(16, 22, 34, 0.8);
             backdrop-filter: blur(12px);
         }
+        .nav-link {
+            position: relative;
+            padding-bottom: 4px;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #1152d4;
+            transform-origin: bottom right;
+            transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .nav-link:hover {
+            color: #1152d4;
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 overflow-x-hidden">
@@ -52,11 +75,10 @@
 <img src="logo.png" alt="Igreja Batista União e Paz" class="h-14 w-auto object-contain">
 </div>
 <nav class="hidden md:flex items-center gap-8">
-<a class="text-slate-100 text-sm font-medium hover:text-primary transition-colors" href="#">Início</a>
-<a class="text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Sobre Nós</a>
-<a class="text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Eventos</a>
-<a class="text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Dízimos</a>
-<a class="text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Localização</a>
+<a class="text-slate-100 text-sm font-medium transition-colors nav-link" href="#">Início</a>
+<a class="text-slate-300 text-sm font-medium transition-colors nav-link" href="#">Eventos</a>
+<a class="text-slate-300 text-sm font-medium transition-colors nav-link" href="#">Contribua</a>
+<a class="text-slate-300 text-sm font-medium transition-colors nav-link" href="#">Localização</a>
 </nav>
 <div class="flex items-center gap-4">
 </div>
