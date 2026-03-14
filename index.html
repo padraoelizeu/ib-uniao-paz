@@ -119,11 +119,12 @@
 <h3 class="text-3xl md:text-4xl font-black dark:text-white">Próximos Eventos e Cultos</h3>
 </div>
 <div class="flex p-1 bg-slate-200 dark:bg-card-dark rounded-xl">
-<button class="px-8 py-2 bg-primary text-white rounded-lg font-bold text-sm shadow-md">Nossa Sede</button>
-<button class="px-8 py-2 text-slate-500 font-bold text-sm hover:text-primary transition-colors">Nossa Filial</button>
+<button id="btnSede" onclick="switchTab('sede')" class="px-8 py-2 bg-primary text-white rounded-lg font-bold text-sm shadow-md transition-all">Nossa Sede</button>
+<button id="btnFilial" onclick="switchTab('filial')" class="px-8 py-2 text-slate-500 font-bold text-sm hover:text-primary transition-colors">Nossa Filial</button>
 </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 max-w-4xl mx-auto gap-8">
+<!-- Tab Sede -->
+<div id="tabSede" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 max-w-4xl mx-auto gap-8">
 <!-- Event 1 -->
 <div class="group cursor-pointer">
 <div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/5]">
@@ -150,6 +151,71 @@
 </div>
 
 </div>
+
+<!-- Tab Filial -->
+<div id="tabFilial" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
+<!-- Event 1 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/5]">
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="People praying together" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiRLRYirWsX02nHdHwpH2SXX_nInDCmppE6Dnr1YyU3cVqDY7flRPjSgZRj-XXOhni0SikWHsMIPO845-SJFWGkbQ1L403JJk9AOVSzwb6-vMEMi0NUUyfXWti7opmK62i5rfXnp_yadk3okAl-N9Ye1aPNqC7DoQRj3lftgHbiaOPBOVIfo4nu9BMzwjd2dV5MWqyL-AbdtkUh-9BlomFdmenK-1R3aVvnQ2rEPlNyFOnlHQLucXxe0aHppZ2m22u66BD_2IrdR5Y"/>
+<div class="absolute bottom-4 left-4 z-20">
+<span class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Presencial</span>
+</div>
+</div>
+<h4 class="text-xl font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">Oração</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Quartas às 08h00</p>
+</div>
+<!-- Event 2 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/5]">
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Church worship service congregation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS3fX8Z_OGiyHVgm1eCY8e11m7z8R44vqbzxmC3ot0QtA-nJbCTrBXoZuUrIsg4EKVONzglVBTPnHSG_qA2ZGpLtxyI61vAIsZfuEBE_OHes3EhsgV_n-tffFQh_132dnESnPoUWwmbFYFYbUzdZo28hovOr0KNfINH7jz4iddE07dUeiluCmxC22tHUJrkf9FJjU2bYmSYBrbJvcQYlqgO81XgMCxELSONKeQvWpTRvq7Wf2_LqJzuu78Qd7yyNF-n81dZcWeiHQl"/>
+<div class="absolute bottom-4 left-4 z-20">
+<span class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Presencial</span>
+</div>
+</div>
+<h4 class="text-xl font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">Culto</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Quartas às 19h30</p>
+</div>
+<!-- Event 3 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/5]">
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="People praying together" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiRLRYirWsX02nHdHwpH2SXX_nInDCmppE6Dnr1YyU3cVqDY7flRPjSgZRj-XXOhni0SikWHsMIPO845-SJFWGkbQ1L403JJk9AOVSzwb6-vMEMi0NUUyfXWti7opmK62i5rfXnp_yadk3okAl-N9Ye1aPNqC7DoQRj3lftgHbiaOPBOVIfo4nu9BMzwjd2dV5MWqyL-AbdtkUh-9BlomFdmenK-1R3aVvnQ2rEPlNyFOnlHQLucXxe0aHppZ2m22u66BD_2IrdR5Y"/>
+<div class="absolute bottom-4 left-4 z-20">
+<span class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Presencial</span>
+</div>
+</div>
+<h4 class="text-xl font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">Oração</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Sextas às 08h00</p>
+</div>
+<!-- Event 4 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/5]">
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Small group bible study" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-jTIaMXtGqutWGq572T1gBr5waqlJ1wen7pFujnsLzLQ9obSMXMted0N_YAOpIA47ZjsuPw9WghwHZfL0D4pkbbJHjofFytZQN77pgCWIRJv_bYopVseDAUj74Yb7K1KKqD1cHi9MULDntT39q_pp141Q1S4AsAjbQxmcB0EnEsGAlinIVIdLB9Nagjunb2W8xdhdRIG8M-3HDHnQxV9N0PvzZ3jyZdfVnlyKU_oDXtRIIPFNmNq07CQOi-yeQjfESyEz5LX7eQ0Q"/>
+<div class="absolute bottom-4 left-4 z-20">
+<span class="bg-accent-gold text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Presencial</span>
+</div>
+</div>
+<h4 class="text-xl font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">Escola Bíblica e Dominical</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Domingos às 09h00</p>
+</div>
+<!-- Event 5 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/5]">
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Church worship service congregation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS3fX8Z_OGiyHVgm1eCY8e11m7z8R44vqbzxmC3ot0QtA-nJbCTrBXoZuUrIsg4EKVONzglVBTPnHSG_qA2ZGpLtxyI61vAIsZfuEBE_OHes3EhsgV_n-tffFQh_132dnESnPoUWwmbFYFYbUzdZo28hovOr0KNfINH7jz4iddE07dUeiluCmxC22tHUJrkf9FJjU2bYmSYBrbJvcQYlqgO81XgMCxELSONKeQvWpTRvq7Wf2_LqJzuu78Qd7yyNF-n81dZcWeiHQl"/>
+<div class="absolute bottom-4 left-4 z-20">
+<span class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Presencial</span>
+</div>
+</div>
+<h4 class="text-xl font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">Culto</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Domingos às 18h00</p>
+</div>
+</div>
+
 </div>
 </section>
 <!-- Location Section -->
@@ -329,4 +395,26 @@
 </div>
 </footer>
 </div>
+<script>
+    function switchTab(tab) {
+        const tabSede = document.getElementById('tabSede');
+        const tabFilial = document.getElementById('tabFilial');
+        const btnSede = document.getElementById('btnSede');
+        const btnFilial = document.getElementById('btnFilial');
+        
+        if (tab === 'sede') {
+            tabSede.classList.remove('hidden');
+            tabFilial.classList.add('hidden');
+            
+            btnSede.className = "px-8 py-2 bg-primary text-white rounded-lg font-bold text-sm shadow-md transition-all";
+            btnFilial.className = "px-8 py-2 text-slate-500 font-bold text-sm hover:text-primary transition-colors";
+        } else {
+            tabFilial.classList.remove('hidden');
+            tabSede.classList.add('hidden');
+            
+            btnFilial.className = "px-8 py-2 bg-primary text-white rounded-lg font-bold text-sm shadow-md transition-all";
+            btnSede.className = "px-8 py-2 text-slate-500 font-bold text-sm hover:text-primary transition-colors";
+        }
+    }
+</script>
 </body></html>
