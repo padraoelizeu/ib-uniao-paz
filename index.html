@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Home Page | Igreja Batista União e Paz</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "accent-gold": "#C5A059",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "card-dark": "#1a2233",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-effect {
+            background: rgba(16, 22, 34, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Top Navigation -->
+<header class="fixed top-0 z-50 w-full border-b border-primary/10 glass-effect">
+<div class="container mx-auto px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<span class="material-symbols-outlined text-4xl">church</span>
+</div>
+<div class="flex flex-col">
+<h2 class="text-slate-100 text-lg font-bold leading-none tracking-tight">IBUP</h2>
+<span class="text-[10px] uppercase tracking-[0.2em] text-accent-gold font-semibold">União e Paz</span>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-100 text-sm font-medium hover:text-primary transition-colors" href="#">Início</a>
+<a class="text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Sobre Nós</a>
+<a class="text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Eventos</a>
+<a class="text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Dízimos</a>
+<a class="text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Localização</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-6 py-2.5 rounded-full transition-all shadow-lg shadow-primary/20">
+                        Seja Membro
+                    </button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-background-dark/40 via-background-dark/60 to-background-dark z-10"></div>
+<div class="w-full h-full bg-cover bg-center scale-105" data-alt="Cinematic ultra-realistic parting sea with dark atmosphere" style="background-image: url('mar-se-abrindo.jpg');">
+</div>
+</div>
+<div class="relative z-20 text-center px-4 max-w-5xl">
+<span class="inline-block text-accent-gold font-semibold tracking-[0.3em] uppercase mb-6 text-sm">Bem-vindo à Experiência com Deus</span>
+<h1 class="text-white text-5xl md:text-7xl font-black leading-tight tracking-tight mb-8">
+                    Igreja Batista <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">União e Paz</span>
+</h1>
+<p class="text-slate-300 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto mb-10">
+                    Um lugar de fé inabalável, comunhão profunda e restauração divina para você e toda a sua família.
+                </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="w-full sm:w-auto bg-primary text-white font-bold py-4 px-10 rounded-xl hover:scale-105 transition-transform">
+                        Conheça Nossa História
+                    </button>
+<button class="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold py-4 px-10 rounded-xl hover:bg-white/20 transition-all">
+                        Assista Online
+                    </button>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+<span class="material-symbols-outlined text-white/50 text-3xl">expand_more</span>
+</div>
+</section>
+<!-- Events Section -->
+<section class="py-24 bg-background-light dark:bg-background-dark">
+<div class="container mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div>
+<h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-2">Programação Semanal</h2>
+<h3 class="text-3xl md:text-4xl font-black dark:text-white">Próximos Eventos e Cultos</h3>
+</div>
+<div class="flex p-1 bg-slate-200 dark:bg-card-dark rounded-xl">
+<button class="px-8 py-2 bg-primary text-white rounded-lg font-bold text-sm shadow-md">Nossa Sede</button>
+<button class="px-8 py-2 text-slate-500 font-bold text-sm hover:text-primary transition-colors">Nossa Filial</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Event 1 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/5]">
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Church worship service congregation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS3fX8Z_OGiyHVgm1eCY8e11m7z8R44vqbzxmC3ot0QtA-nJbCTrBXoZuUrIsg4EKVONzglVBTPnHSG_qA2ZGpLtxyI61vAIsZfuEBE_OHes3EhsgV_n-tffFQh_132dnESnPoUWwmbFYFYbUzdZo28hovOr0KNfINH7jz4iddE07dUeiluCmxC22tHUJrkf9FJjU2bYmSYBrbJvcQYlqgO81XgMCxELSONKeQvWpTRvq7Wf2_LqJzuu78Qd7yyNF-n81dZcWeiHQl"/>
+<div class="absolute bottom-4 left-4 z-20">
+<span class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Presencial</span>
+</div>
+</div>
+<h4 class="text-xl font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">Culto de Celebração</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Domingos às 19h00</p>
+</div>
+<!-- Event 2 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/5]">
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Small group bible study" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-jTIaMXtGqutWGq572T1gBr5waqlJ1wen7pFujnsLzLQ9obSMXMted0N_YAOpIA47ZjsuPw9WghwHZfL0D4pkbbJHjofFytZQN77pgCWIRJv_bYopVseDAUj74Yb7K1KKqD1cHi9MULDntT39q_pp141Q1S4AsAjbQxmcB0EnEsGAlinIVIdLB9Nagjunb2W8xdhdRIG8M-3HDHnQxV9N0PvzZ3jyZdfVnlyKU_oDXtRIIPFNmNq07CQOi-yeQjfESyEz5LX7eQ0Q"/>
+<div class="absolute bottom-4 left-4 z-20">
+<span class="bg-accent-gold text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Estudo</span>
+</div>
+</div>
+<h4 class="text-xl font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">Escola Bíblica</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Domingos às 09h00</p>
+</div>
+<!-- Event 3 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/5]">
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="People praying together" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiRLRYirWsX02nHdHwpH2SXX_nInDCmppE6Dnr1YyU3cVqDY7flRPjSgZRj-XXOhni0SikWHsMIPO845-SJFWGkbQ1L403JJk9AOVSzwb6-vMEMi0NUUyfXWti7opmK62i5rfXnp_yadk3okAl-N9Ye1aPNqC7DoQRj3lftgHbiaOPBOVIfo4nu9BMzwjd2dV5MWqyL-AbdtkUh-9BlomFdmenK-1R3aVvnQ2rEPlNyFOnlHQLucXxe0aHppZ2m22u66BD_2IrdR5Y"/>
+<div class="absolute bottom-4 left-4 z-20">
+<span class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Oração</span>
+</div>
+</div>
+<h4 class="text-xl font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">Noite de Clamor</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Quartas às 20h00</p>
+</div>
+<!-- Event 4 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/5]">
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Young people laughing together" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBil55JTAugJLcQ55VBisrYUOcfOEAJe8ypclVG0fEErNVaX9Ij-SsfLMwZT0Ty-iLnoEmufV6EO1IvRkadiThZj_VeESd_bT_LA-Yvgg93bSEUhPQTyMwpr2hIoBc0FomfZ5fUXtOBiJfKPhbmOO1CLCwxGZ1uyNtq1WOA8GDbN6347BQ0OOfSoLpf3b2_tPJMjBWQfRsF_5pV2FeUSi9xtP8XHVXu4u9VM_z2l2fnLn-jTEpKsUFBxagCAu1RaYQnBzVk3DaJVti1"/>
+<div class="absolute bottom-4 left-4 z-20">
+<span class="bg-indigo-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Jovens</span>
+</div>
+</div>
+<h4 class="text-xl font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">Conexão Jovem</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Sábados às 19h30</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Location Section -->
+<section class="py-24 bg-slate-50 dark:bg-[#0c121d]">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h3 class="text-3xl md:text-4xl font-black dark:text-white mb-4">Nossas Unidades</h3>
+<p class="text-slate-500 dark:text-slate-400">Encontre a IBUP mais próxima de você.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+<!-- Sede -->
+<div class="bg-white dark:bg-card-dark p-8 rounded-3xl shadow-xl border border-primary/5">
+<div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl">location_on</span>
+</div>
+<h4 class="text-2xl font-bold dark:text-white mb-4">Unidade Sede</h4>
+<p class="text-slate-500 dark:text-slate-300 mb-6 leading-relaxed">
+                            Rua das Graças, 123 - Centro<br/>
+                            Belo Horizonte - MG<br/>
+                            CEP: 30123-456
+                        </p>
+<a class="inline-flex items-center gap-2 text-primary font-bold hover:underline" href="https://maps.google.com" target="_blank">
+                            Ver no Google Maps
+                            <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+<div class="mt-8 overflow-hidden rounded-xl h-48 grayscale hover:grayscale-0 transition-all">
+<img class="w-full h-full object-cover" data-alt="Satellite view of city map area" data-location="Belo Horizonte" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRO_8U9pkpkD7XsjARr5P1CqgtrqA2UoJVNe25IXW43EYIW4QHPJ1lUTXlk9zjEZcDIi-5ichU0lGRANpB1gt_HLYERHEny_Va36L4m0My60BLW_iT019RgmnHUQytf202l1oj-wv9e9aS8qyVxiFxv4e4-OgIGEpQrn7rp4WX7JkT7gKzI5fVBNIJ4c_wyDBgcF9qD4rMWikskLua81g4cVbMDrODlEepEh9x3Cwr40JzWsUp58n-PQEMqT1oAwOD8KHrWIzytEtN"/>
+</div>
+</div>
+<!-- Filial -->
+<div class="bg-white dark:bg-card-dark p-8 rounded-3xl shadow-xl border border-primary/5">
+<div class="w-14 h-14 bg-accent-gold/10 text-accent-gold rounded-2xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl">home_work</span>
+</div>
+<h4 class="text-2xl font-bold dark:text-white mb-4">Unidade Filial</h4>
+<p class="text-slate-500 dark:text-slate-300 mb-6 leading-relaxed">
+                            Av. Esperança, 880 - Bairro Novo<br/>
+                            Contagem - MG<br/>
+                            CEP: 32000-000
+                        </p>
+<a class="inline-flex items-center gap-2 text-accent-gold font-bold hover:underline" href="https://maps.google.com" target="_blank">
+                            Ver no Google Maps
+                            <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+<div class="mt-8 overflow-hidden rounded-xl h-48 grayscale hover:grayscale-0 transition-all">
+<img class="w-full h-full object-cover" data-alt="Urban neighborhood street view map" data-location="Contagem" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmeEbBjJ2Q60rYjGf11o8qAzwUz3qdsQUhqO61THzjQB1HuAyzSYypd6o53Oa3nwSELxZmM08hRKzn3KujGpUIzWlOYiuBujJimqk_zFg9CCS7Pzr-7Lz20bX8-sz-h8NyCKtcfWDplrJi0BRGhTxDy4yfueT74I52B3Ip0AjSFoYFLB9WaM2vOMVzt1Zdff-tafhfn9JheOWjFSLnfHaH6JAKpGCsKw19nmFGdTXnBHAUhj7efcMnhwcP5MbPzDLUbLdu4h6N7wM9"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Donations Section -->
+<section class="py-24 relative overflow-hidden">
+<div class="absolute inset-0 bg-primary/5 -z-10"></div>
+<div class="container mx-auto px-6">
+<div class="max-w-4xl mx-auto bg-white dark:bg-card-dark rounded-[2.5rem] p-12 shadow-2xl relative overflow-hidden border border-primary/10">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-[120px] text-primary">volunteer_activism</span>
+</div>
+<div class="relative z-10 text-center mb-12">
+<h3 class="text-3xl md:text-4xl font-black dark:text-white mb-4">Dízimos e Ofertas</h3>
+<p class="text-slate-500 dark:text-slate-400 max-w-xl mx-auto italic">
+                            "Cada um dê conforme determinou em seu coração, não com pesar ou por obrigação, pois Deus ama quem dá com alegria." (2 Co 9:7)
+                        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="bg-primary/10 p-3 rounded-full text-primary">
+<span class="material-symbols-outlined">qr_code_2</span>
+</div>
+<div>
+<h5 class="font-bold text-lg dark:text-white mb-1">Doação via PIX</h5>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-2">Chave CNPJ:</p>
+<div class="bg-slate-100 dark:bg-background-dark p-3 rounded-lg flex items-center justify-between">
+<code class="text-primary font-mono font-bold">12.345.678/0001-90</code>
+<button class="text-xs font-bold text-slate-400 hover:text-primary uppercase tracking-tighter">Copiar</button>
+</div>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary/10 p-3 rounded-full text-primary">
+<span class="material-symbols-outlined">shield</span>
+</div>
+<div>
+<h5 class="font-bold text-lg dark:text-white mb-1">Segurança</h5>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Toda transação é criptografada e destinada diretamente à manutenção da obra de Deus e projetos sociais.</p>
+</div>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-background-dark p-8 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700">
+<h5 class="font-bold text-lg dark:text-white mb-4">Dados Bancários</h5>
+<div class="space-y-3 text-sm">
+<div class="flex justify-between">
+<span class="text-slate-500">Banco</span>
+<span class="font-bold dark:text-white">Itaú (341)</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-500">Agência</span>
+<span class="font-bold dark:text-white">0910</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-500">Conta Corrente</span>
+<span class="font-bold dark:text-white">12345-6</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-500">Favorecido</span>
+<span class="font-bold dark:text-white">Igreja Batista União e Paz</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-background-dark py-16 border-t border-primary/10">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-4xl text-primary">church</span>
+<div class="flex flex-col">
+<h2 class="text-slate-100 text-xl font-bold leading-none tracking-tight">IBUP</h2>
+<span class="text-[10px] uppercase tracking-[0.2em] text-accent-gold font-semibold">União e Paz</span>
+</div>
+</div>
+<p class="text-slate-400 max-w-sm mb-6">
+                            Nossa missão é amar a Deus sobre todas as coisas e ao próximo como a nós mesmos, vivendo em unidade e paz.
+                        </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-card-dark flex items-center justify-center text-slate-300 hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-card-dark flex items-center justify-center text-slate-300 hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">play_circle</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-card-dark flex items-center justify-center text-slate-300 hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">mail</span>
+</a>
+</div>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Links Rápidos</h5>
+<ul class="space-y-4 text-slate-400 text-sm">
+<li><a class="hover:text-primary" href="#">Nossa História</a></li>
+<li><a class="hover:text-primary" href="#">Programação</a></li>
+<li><a class="hover:text-primary" href="#">Ministérios</a></li>
+<li><a class="hover:text-primary" href="#">Células</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Contato</h5>
+<ul class="space-y-4 text-slate-400 text-sm">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">phone</span>
+                                (31) 3333-4444
+                            </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">email</span>
+                                contato@ibup.com.br
+                            </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">schedule</span>
+                                Ter-Sex: 09h às 18h
+                            </li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-xs">
+<p>© 2024 Igreja Batista União e Paz. Todos os direitos reservados.</p>
+<div class="flex gap-8">
+<a class="hover:text-slate-300" href="#">Privacidade</a>
+<a class="hover:text-slate-300" href="#">Termos de Uso</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
