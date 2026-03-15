@@ -14,11 +14,17 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#1152d4",
+                        "primary": "#2563EB", /* Light mode link/button */
+                        "primary-dark": "#60A5FA", /* Dark mode link/button */
                         "accent-gold": "#C5A059",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#101622",
-                        "card-dark": "#1a2233",
+                        "background-light": "#FFFFFF", /* Sol: Fundo Principal */
+                        "background-dark": "#0F172A", /* Lua: Fundo Principal */
+                        "card-light": "#F8FAFC", /* Sol: Cards */
+                        "card-dark": "#1E293B", /* Lua: Cards */
+                        "text-light": "#1E293B", /* Sol: Texto Principal */
+                        "text-dark": "#F1F5F9", /* Lua: Texto Principal */
+                        "border-light": "#E2E8F0", /* Sol: Bordas */
+                        "border-dark": "#334155", /* Lua: Bordas */
                     },
                     fontFamily: {
                         "display": ["Inter", "sans-serif"]
@@ -62,11 +68,20 @@
             transform-origin: bottom left;
         }
         .nav-link:hover {
-            color: #1152d4;
+            color: #2563EB;
+        }
+        .dark .nav-link:hover {
+            color: #60A5FA;
+        }
+        .nav-link::after {
+            background-color: #2563EB;
+        }
+        .dark .nav-link::after {
+            background-color: #60A5FA;
         }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 overflow-x-hidden">
+<body class="bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark overflow-x-hidden transition-colors duration-300">
 <div class="relative flex min-h-screen w-full flex-col">
 <!-- Top Navigation -->
 <header class="fixed top-0 z-50 w-full border-b border-primary/10 glass-effect">
@@ -77,10 +92,13 @@
 <nav class="hidden md:flex items-center gap-8">
 <a class="text-slate-100 text-sm font-medium transition-colors nav-link" href="#">Início</a>
 <a class="text-slate-300 text-sm font-medium transition-colors nav-link" href="#">Eventos</a>
-<a class="text-slate-300 text-sm font-medium transition-colors nav-link" href="#">Contribua</a>
-<a class="text-slate-300 text-sm font-medium transition-colors nav-link" href="#">Localização</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium transition-colors nav-link" href="#">Contribua</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium transition-colors nav-link" href="#">Localização</a>
 </nav>
 <div class="flex items-center gap-4">
+<button id="themeToggle" onclick="toggleTheme()" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-card-dark flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors border border-border-light dark:border-border-dark shadow-sm">
+    <span id="themeIcon" class="material-symbols-outlined text-xl">dark_mode</span>
+</button>
 </div>
 </div>
 </header>
@@ -118,7 +136,7 @@
 <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-2">Programação Semanal</h2>
 <h3 class="text-3xl md:text-4xl font-black dark:text-white">Próximos Eventos e Cultos</h3>
 </div>
-<div class="flex p-1 bg-slate-200 dark:bg-card-dark rounded-xl">
+<div class="flex p-1 bg-border-light dark:bg-border-dark rounded-xl">
 <button id="btnSede" onclick="switchTab('sede')" class="px-8 py-2 bg-primary text-white rounded-lg font-bold text-sm shadow-md transition-all">Nossa Sede</button>
 <button id="btnFilial" onclick="switchTab('filial')" class="px-8 py-2 text-slate-500 font-bold text-sm hover:text-primary transition-colors">Nossa Filial</button>
 </div>
@@ -227,8 +245,8 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
 <!-- Sede -->
-<div class="bg-white dark:bg-card-dark p-8 rounded-3xl shadow-xl border border-primary/5">
-<div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6">
+<div class="bg-card-light dark:bg-card-dark p-8 rounded-3xl shadow-xl border border-border-light dark:border-border-dark">
+<div class="w-14 h-14 bg-primary/10 dark:bg-primary-dark/10 text-primary dark:text-primary-dark rounded-2xl flex items-center justify-center mb-6">
 <span class="material-symbols-outlined text-3xl">location_on</span>
 </div>
 <h4 class="text-2xl font-bold dark:text-white mb-4">Unidade Sede</h4>
@@ -246,7 +264,7 @@
 </div>
 </div>
 <!-- Filial -->
-<div class="bg-white dark:bg-card-dark p-8 rounded-3xl shadow-xl border border-primary/5">
+<div class="bg-card-light dark:bg-card-dark p-8 rounded-3xl shadow-xl border border-border-light dark:border-border-dark">
 <div class="w-14 h-14 bg-accent-gold/10 text-accent-gold rounded-2xl flex items-center justify-center mb-6">
 <span class="material-symbols-outlined text-3xl">home_work</span>
 </div>
@@ -268,11 +286,11 @@
 </section>
 <!-- Donations Section -->
 <section class="py-24 relative overflow-hidden">
-<div class="absolute inset-0 bg-primary/5 -z-10"></div>
+<div class="absolute inset-0 bg-primary/5 dark:bg-primary-dark/5 -z-10"></div>
 <div class="container mx-auto px-6">
-<div class="max-w-4xl mx-auto bg-white dark:bg-card-dark rounded-[2.5rem] p-12 shadow-2xl relative overflow-hidden border border-primary/10">
+<div class="max-w-4xl mx-auto bg-card-light dark:bg-card-dark rounded-[2.5rem] p-12 shadow-2xl relative overflow-hidden border border-border-light dark:border-border-dark">
 <div class="absolute top-0 right-0 p-8 opacity-10">
-<span class="material-symbols-outlined text-[120px] text-primary">volunteer_activism</span>
+<span class="material-symbols-outlined text-[120px] text-primary dark:text-primary-dark">volunteer_activism</span>
 </div>
 <div class="relative z-10 text-center mb-12">
 <h3 class="text-3xl md:text-4xl font-black dark:text-white mb-4">Dízimos e Ofertas</h3>
@@ -292,8 +310,8 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" class="h-5 w-5 text-[#32bcad]"><path d="M371 140.9l-81.8-82c-18.4-18.5-48.4-18.5-66.8 0l-81.8 82c-5.1 5.1-5.1 13.4 0 18.5l34.4 34.4c5.1 5.1 13.3 5.1 18.5 0l42.3-42.3c6.9-6.9 18.2-6.9 25.1 0l61.3 61.3c15.1 15.1 15.1 39.5 0 54.6l-61.3 61.3c-6.9 6.9-18.2 6.9-25.1 0l-42.3-42.3c-5.1-5.1-13.3-5.1-18.5 0l-34.4 34.4c-5.1 5.1-5.1 13.4 0 18.5l81.8 82c18.4 18.5 48.4 18.5 66.8 0l81.8-82c5.1-5.1 5.1-13.4 0-18.5l-34.4-34.4c-5.1-5.1-13.3-5.1-18.5 0l-42.3 42.3c-6.9 6.9-18.2 6.9-25.1 0l-61.3-61.3c-15.1-15.1-15.1-39.5 0-54.6l61.3-61.3c6.9-6.9 18.2-6.9 25.1 0l42.3 42.3c5.1 5.1 13.3 5.1 18.5 0l34.4-34.4c5.1-5.1 5.1-13.4 0-18.5zm-230 73.1l-61.6-61.6c-5.1-5.1-5.1-13.4 0-18.5l34.4-34.4c5.1-5.1 13.3-5.1 18.5 0l61.6 61.6c6.9 6.9 6.9 18.2 0 25.1l-61.6 61.6c-5.1 5.1-13.3 5.1-18.5 0L78.4 336c-5.1-5.1-5.1-13.4 0-18.5l62.6-62.6c6.9-6.9 6.9-18.2 0-25.1z"/></svg>
 </h5>
 <p class="text-slate-500 dark:text-slate-400 text-sm mb-2">Chave CNPJ:</p>
-<div class="bg-slate-100 dark:bg-background-dark p-3 rounded-lg flex items-center justify-between">
-<code id="pixKey" class="text-primary font-mono font-bold">12428292000147</code>
+<div class="bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark p-3 rounded-lg flex items-center justify-between">
+<code id="pixKey" class="text-primary dark:text-primary-dark font-mono font-bold">12428292000147</code>
 <button id="btnCopyPix" onclick="copyPix()" class="text-xs font-bold text-slate-400 hover:text-primary uppercase tracking-tighter flex items-center gap-1 transition-all">
     <span class="material-symbols-outlined text-sm">content_copy</span>
     <span id="textCopyPix">Copiar</span>
@@ -302,7 +320,7 @@
 </div>
 </div>
 <div class="flex items-start gap-4">
-<div class="bg-primary/10 p-3 rounded-full text-primary">
+<div class="bg-primary/10 dark:bg-primary-dark/10 p-3 rounded-full text-primary dark:text-primary-dark">
 <span class="material-symbols-outlined">target</span>
 </div>
 <div>
@@ -311,7 +329,7 @@
 </div>
 </div>
 </div>
-<div class="bg-slate-50 dark:bg-background-dark p-8 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700">
+<div class="bg-card-light dark:bg-background-dark p-8 rounded-2xl border border-dashed border-border-light dark:border-border-dark shadow-sm">
 <h5 class="font-bold text-lg dark:text-white mb-4">Dados Bancários</h5>
 <div class="space-y-3 text-sm">
 <div class="flex justify-between">
@@ -337,7 +355,7 @@
 </div>
 </section>
 <!-- Footer -->
-<footer class="bg-background-dark py-16 border-t border-primary/10">
+<footer class="bg-background-dark py-16 border-t border-border-dark">
 <div class="container mx-auto px-6">
 <div class="grid grid-cols-1 gap-12 mb-12 justify-items-center">
 <div class="col-span-1 md:col-span-2 text-center">
@@ -349,13 +367,13 @@
                         </p>
 <div class="flex flex-col gap-4 items-center">
 <div class="flex items-center gap-3">
-<a class="w-10 h-10 rounded-full bg-card-dark flex items-center justify-center text-slate-300 hover:text-pink-500 hover:bg-white transition-colors" href="https://www.instagram.com/igreja_batista_uniao_e_paz?igsh=Znc5YXNkenkyZjR2" target="_blank" title="Instagram Sede">
+<a class="w-10 h-10 rounded-full bg-card-dark flex items-center justify-center text-slate-300 hover:text-pink-500 hover:bg-white transition-colors border border-border-dark" href="https://www.instagram.com/igreja_batista_uniao_e_paz?igsh=Znc5YXNkenkyZjR2" target="_blank" title="Instagram Sede">
 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
 </a>
-<span class="text-sm text-slate-400 font-medium">@igreja_batista_uniao_e_paz <span class="text-xs text-primary ml-1 font-bold">(Sede)</span></span>
+<span class="text-sm text-slate-400 font-medium">@igreja_batista_uniao_e_paz <span class="text-xs text-primary-dark ml-1 font-bold">(Sede)</span></span>
 </div>
 <div class="flex items-center gap-3">
-<a class="w-10 h-10 rounded-full bg-card-dark flex items-center justify-center text-slate-300 hover:text-pink-500 hover:bg-white transition-colors" href="https://www.instagram.com/ib_uniaopazbaliza?igsh=aHN4Nm4xa3AwOWM=" target="_blank" title="Instagram Filial">
+<a class="w-10 h-10 rounded-full bg-card-dark flex items-center justify-center text-slate-300 hover:text-pink-500 hover:bg-white transition-colors border border-border-dark" href="https://www.instagram.com/ib_uniaopazbaliza?igsh=aHN4Nm4xa3AwOWM=" target="_blank" title="Instagram Filial">
 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
 </a>
 <span class="text-sm text-slate-400 font-medium">@ib_uniaopazbaliza <span class="text-xs text-accent-gold ml-1 font-bold">(Filial)</span></span>
@@ -418,6 +436,35 @@
         }).catch(err => {
             console.error('Falha ao copiar PIX: ', err);
         });
+    }
+
+    // Initialize Theme
+    const htmlElement = document.documentElement;
+    const themeIcon = document.getElementById('themeIcon');
+    
+    // Set initial theme based on user preference or default to dark
+    if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+        htmlElement.classList.remove('dark');
+        htmlElement.classList.add('light'); // Ensure background is light if expected
+        themeIcon.innerText = 'light_mode'; // Moon icon for light mode (because clicking it goes dark)
+        localStorage.theme = 'light';
+    } else {
+        htmlElement.classList.add('dark');
+        themeIcon.innerText = 'dark_mode'; // Sun icon for dark mode (because clicking it goes light)
+        localStorage.theme = 'dark';
+    }
+
+    // Toggle Function
+    function toggleTheme() {
+        if (htmlElement.classList.contains('dark')) {
+            htmlElement.classList.remove('dark');
+            localStorage.theme = 'light';
+            themeIcon.innerText = 'light_mode'; 
+        } else {
+            htmlElement.classList.add('dark');
+            localStorage.theme = 'dark';
+            themeIcon.innerText = 'dark_mode';
+        }
     }
 </script>
 </body></html>
