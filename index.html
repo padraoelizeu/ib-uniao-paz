@@ -293,8 +293,11 @@
 </h5>
 <p class="text-slate-500 dark:text-slate-400 text-sm mb-2">Chave CNPJ:</p>
 <div class="bg-slate-100 dark:bg-background-dark p-3 rounded-lg flex items-center justify-between">
-<code class="text-primary font-mono font-bold">12428292000147</code>
-<button class="text-xs font-bold text-slate-400 hover:text-primary uppercase tracking-tighter">Copiar</button>
+<code id="pixKey" class="text-primary font-mono font-bold">12428292000147</code>
+<button id="btnCopyPix" onclick="copyPix()" class="text-xs font-bold text-slate-400 hover:text-primary uppercase tracking-tighter flex items-center gap-1 transition-all">
+    <span class="material-symbols-outlined text-sm">content_copy</span>
+    <span id="textCopyPix">Copiar</span>
+</button>
 </div>
 </div>
 </div>
@@ -408,6 +411,31 @@
             btnFilial.className = "px-8 py-2 bg-primary text-white rounded-lg font-bold text-sm shadow-md transition-all";
             btnSede.className = "px-8 py-2 text-slate-500 font-bold text-sm hover:text-primary transition-colors";
         }
+    }
+
+    function copyPix() {
+        const pixText = document.getElementById('pixKey').innerText;
+        const btn = document.getElementById('btnCopyPix');
+        const textSpan = document.getElementById('textCopyPix');
+        const icon = btn.querySelector('.material-symbols-outlined');
+
+        navigator.clipboard.writeText(pixText).then(() => {
+            // Visual feedback
+            btn.classList.remove('text-slate-400');
+            btn.classList.add('text-[#32bcad]');
+            icon.innerText = 'check';
+            textSpan.innerText = 'Copiado para a área de transferência';
+            
+            // Revert after 3 seconds
+            setTimeout(() => {
+                btn.classList.add('text-slate-400');
+                btn.classList.remove('text-[#32bcad]');
+                icon.innerText = 'content_copy';
+                textSpan.innerText = 'Copiar';
+            }, 3000);
+        }).catch(err => {
+            console.error('Falha ao copiar PIX: ', err);
+        });
     }
 </script>
 </body></html>
