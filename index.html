@@ -79,6 +79,30 @@
         .dark .nav-link::after {
             background-color: #60A5FA;
         }
+        .flip-card {
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            position: relative;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        .flip-card-back {
+            position: absolute;
+            inset: 0;
+            transform: rotateY(180deg);
+            background-color: #F8FAFC;
+        }
+        .dark .flip-card-back {
+            background-color: #1E293B;
+        }
     </style>
 </head>
 <body class="bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark overflow-x-hidden transition-colors duration-300">
@@ -93,7 +117,6 @@
 <a class="text-slate-100 text-sm font-medium transition-colors nav-link" href="#">Início</a>
 <a class="text-slate-300 text-sm font-medium transition-colors nav-link" href="#">Eventos</a>
 <a class="text-text-light dark:text-text-dark text-sm font-medium transition-colors nav-link" href="#">Contribua</a>
-<a class="text-text-light dark:text-text-dark text-sm font-medium transition-colors nav-link" href="#">Localização</a>
 </nav>
 <div class="flex items-center gap-4">
 <button id="themeToggle" onclick="toggleTheme()" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-card-dark flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors border border-border-light dark:border-border-dark shadow-sm">
@@ -144,19 +167,35 @@
 <!-- Tab Sede -->
 <div id="tabSede" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 max-w-4xl mx-auto gap-8">
 <!-- Event 1 -->
-<div class="group cursor-pointer">
+<div class="group cursor-pointer flip-card" onclick="this.classList.toggle('flipped')">
+<div class="flip-card-inner h-full">
+<div class="flip-card-front h-full flex flex-col">
 <div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/5]">
 <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Church worship service congregation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS3fX8Z_OGiyHVgm1eCY8e11m7z8R44vqbzxmC3ot0QtA-nJbCTrBXoZuUrIsg4EKVONzglVBTPnHSG_qA2ZGpLtxyI61vAIsZfuEBE_OHes3EhsgV_n-tffFQh_132dnESnPoUWwmbFYFYbUzdZo28hovOr0KNfINH7jz4iddE07dUeiluCmxC22tHUJrkf9FJjU2bYmSYBrbJvcQYlqgO81XgMCxELSONKeQvWpTRvq7Wf2_LqJzuu78Qd7yyNF-n81dZcWeiHQl"/>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Bíblia Minimalista" src="biblia_minimalista.png"/>
 <div class="absolute bottom-4 left-4 z-20">
 <span class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Presencial</span>
 </div>
 </div>
-<h4 class="text-xl font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">Culto de Celebração</h4>
+<h4 class="text-xl font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">Culto</h4>
 <p class="text-slate-500 dark:text-slate-400 text-sm">Terças às 19h30</p>
 </div>
+<div class="flip-card-back rounded-2xl border border-border-light dark:border-border-dark p-6 shadow-xl flex flex-col justify-center">
+<h4 class="text-lg font-bold text-primary mb-4 border-b border-primary/20 pb-2">Roteiro</h4>
+<ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Abertura.</li>
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Testemunhos e oportunidades</li>
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-sm">check_circle</span> Louvor.</li>
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Pregação.</li>
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Oração de conclusão.</li>
+</ul>
+</div>
+</div>
+</div>
 <!-- Event 2 -->
-<div class="group cursor-pointer">
+<div class="group cursor-pointer flip-card" onclick="this.classList.toggle('flipped')">
+<div class="flip-card-inner h-full">
+<div class="flip-card-front h-full flex flex-col">
 <div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/5]">
 <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Small group bible study" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-jTIaMXtGqutWGq572T1gBr5waqlJ1wen7pFujnsLzLQ9obSMXMted0N_YAOpIA47ZjsuPw9WghwHZfL0D4pkbbJHjofFytZQN77pgCWIRJv_bYopVseDAUj74Yb7K1KKqD1cHi9MULDntT39q_pp141Q1S4AsAjbQxmcB0EnEsGAlinIVIdLB9Nagjunb2W8xdhdRIG8M-3HDHnQxV9N0PvzZ3jyZdfVnlyKU_oDXtRIIPFNmNq07CQOi-yeQjfESyEz5LX7eQ0Q"/>
@@ -164,8 +203,20 @@
 <span class="bg-accent-gold text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Presencial</span>
 </div>
 </div>
-<h4 class="text-xl font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">Escola Bíblica</h4>
+<h4 class="text-xl font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">Culto</h4>
 <p class="text-slate-500 dark:text-slate-400 text-sm">Domingos às 18h00</p>
+</div>
+<div class="flip-card-back rounded-2xl border border-border-light dark:border-border-dark p-6 shadow-xl flex flex-col justify-center">
+<h4 class="text-lg font-bold text-accent-gold mb-4 border-b border-accent-gold/20 pb-2">Roteiro</h4>
+<ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+    <li class="flex items-start gap-2"><span class="text-accent-gold mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Abertura.</li>
+    <li class="flex items-start gap-2"><span class="text-accent-gold mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Testemunhos e oportunidades</li>
+    <li class="flex items-start gap-2"><span class="text-accent-gold mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Louvor.</li>
+    <li class="flex items-start gap-2"><span class="text-accent-gold mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Pregação.</li>
+    <li class="flex items-start gap-2"><span class="text-accent-gold mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Oração de conclusão.</li>
+</ul>
+</div>
+</div>
 </div>
 
 </div>
@@ -173,7 +224,9 @@
 <!-- Tab Filial -->
 <div id="tabFilial" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
 <!-- Event 1 -->
-<div class="group cursor-pointer">
+<div class="group cursor-pointer flip-card" onclick="this.classList.toggle('flipped')">
+<div class="flip-card-inner h-full">
+<div class="flip-card-front h-full flex flex-col">
 <div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/5]">
 <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="People praying together" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiRLRYirWsX02nHdHwpH2SXX_nInDCmppE6Dnr1YyU3cVqDY7flRPjSgZRj-XXOhni0SikWHsMIPO845-SJFWGkbQ1L403JJk9AOVSzwb6-vMEMi0NUUyfXWti7opmK62i5rfXnp_yadk3okAl-N9Ye1aPNqC7DoQRj3lftgHbiaOPBOVIfo4nu9BMzwjd2dV5MWqyL-AbdtkUh-9BlomFdmenK-1R3aVvnQ2rEPlNyFOnlHQLucXxe0aHppZ2m22u66BD_2IrdR5Y"/>
@@ -184,11 +237,24 @@
 <h4 class="text-xl font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">Oração</h4>
 <p class="text-slate-500 dark:text-slate-400 text-sm">Quartas às 08h00</p>
 </div>
+<div class="flip-card-back rounded-2xl border border-border-light dark:border-border-dark p-6 shadow-xl flex flex-col justify-center">
+<h4 class="text-lg font-bold text-primary mb-4 border-b border-primary/20 pb-2">Roteiro</h4>
+<ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Oração Individual.</li>
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Reflexão bíblica.</li>
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Oração coletiva E pedidos de oração</li>
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Oração Final e conclusão.</li>
+</ul>
+</div>
+</div>
+</div>
 <!-- Event 2 -->
-<div class="group cursor-pointer">
+<div class="group cursor-pointer flip-card" onclick="this.classList.toggle('flipped')">
+<div class="flip-card-inner h-full">
+<div class="flip-card-front h-full flex flex-col">
 <div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/5]">
 <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Church worship service congregation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS3fX8Z_OGiyHVgm1eCY8e11m7z8R44vqbzxmC3ot0QtA-nJbCTrBXoZuUrIsg4EKVONzglVBTPnHSG_qA2ZGpLtxyI61vAIsZfuEBE_OHes3EhsgV_n-tffFQh_132dnESnPoUWwmbFYFYbUzdZo28hovOr0KNfINH7jz4iddE07dUeiluCmxC22tHUJrkf9FJjU2bYmSYBrbJvcQYlqgO81XgMCxELSONKeQvWpTRvq7Wf2_LqJzuu78Qd7yyNF-n81dZcWeiHQl"/>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Open Bible minimal aesthetic" src="biblia_minimalista.png"/>
 <div class="absolute bottom-4 left-4 z-20">
 <span class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Presencial</span>
 </div>
@@ -196,8 +262,22 @@
 <h4 class="text-xl font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">Culto</h4>
 <p class="text-slate-500 dark:text-slate-400 text-sm">Quartas às 19h30</p>
 </div>
+<div class="flip-card-back rounded-2xl border border-border-light dark:border-border-dark p-6 shadow-xl flex flex-col justify-center">
+<h4 class="text-lg font-bold text-primary mb-4 border-b border-primary/20 pb-2">Roteiro</h4>
+<ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Abertura.</li>
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Testemunhos e oportunidades</li>
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-sm">check_circle</span> Louvor.</li>
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Pregação.</li>
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Oração de conclusão.</li>
+</ul>
+</div>
+</div>
+</div>
 <!-- Event 3 -->
-<div class="group cursor-pointer">
+<div class="group cursor-pointer flip-card" onclick="this.classList.toggle('flipped')">
+<div class="flip-card-inner h-full">
+<div class="flip-card-front h-full flex flex-col">
 <div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/5]">
 <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="People praying together" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiRLRYirWsX02nHdHwpH2SXX_nInDCmppE6Dnr1YyU3cVqDY7flRPjSgZRj-XXOhni0SikWHsMIPO845-SJFWGkbQ1L403JJk9AOVSzwb6-vMEMi0NUUyfXWti7opmK62i5rfXnp_yadk3okAl-N9Ye1aPNqC7DoQRj3lftgHbiaOPBOVIfo4nu9BMzwjd2dV5MWqyL-AbdtkUh-9BlomFdmenK-1R3aVvnQ2rEPlNyFOnlHQLucXxe0aHppZ2m22u66BD_2IrdR5Y"/>
@@ -206,13 +286,26 @@
 </div>
 </div>
 <h4 class="text-xl font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">Oração</h4>
-<p class="text-slate-500 dark:text-slate-400 text-sm">Sextas às 08h00</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Sextas às 09h00</p>
+</div>
+<div class="flip-card-back rounded-2xl border border-border-light dark:border-border-dark p-6 shadow-xl flex flex-col justify-center">
+<h4 class="text-lg font-bold text-primary mb-4 border-b border-primary/20 pb-2">Roteiro</h4>
+<ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Oração Individual.</li>
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Reflexão bíblica.</li>
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Oração coletiva E pedidos de oração</li>
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Oração Final e conclusão.</li>
+</ul>
+</div>
+</div>
 </div>
 <!-- Event 4 -->
-<div class="group cursor-pointer">
+<div class="group cursor-pointer flip-card" onclick="this.classList.toggle('flipped')">
+<div class="flip-card-inner h-full">
+<div class="flip-card-front h-full flex flex-col">
 <div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/5]">
 <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Small group bible study" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-jTIaMXtGqutWGq572T1gBr5waqlJ1wen7pFujnsLzLQ9obSMXMted0N_YAOpIA47ZjsuPw9WghwHZfL0D4pkbbJHjofFytZQN77pgCWIRJv_bYopVseDAUj74Yb7K1KKqD1cHi9MULDntT39q_pp141Q1S4AsAjbQxmcB0EnEsGAlinIVIdLB9Nagjunb2W8xdhdRIG8M-3HDHnQxV9N0PvzZ3jyZdfVnlyKU_oDXtRIIPFNmNq07CQOi-yeQjfESyEz5LX7eQ0Q"/>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Bíblia e Natureza EBD" src="natureza_ebd.png"/>
 <div class="absolute bottom-4 left-4 z-20">
 <span class="bg-accent-gold text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Presencial</span>
 </div>
@@ -220,17 +313,41 @@
 <h4 class="text-xl font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">Escola Bíblica e Dominical</h4>
 <p class="text-slate-500 dark:text-slate-400 text-sm">Domingos às 09h00</p>
 </div>
+<div class="flip-card-back rounded-2xl border border-border-light dark:border-border-dark p-6 shadow-xl flex flex-col justify-center">
+<h4 class="text-lg font-bold text-accent-gold mb-4 border-b border-accent-gold/20 pb-2">Roteiro</h4>
+<ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+    <li class="flex items-start gap-2"><span class="text-accent-gold mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Abertura e oração.</li>
+    <li class="flex items-start gap-2"><span class="text-accent-gold mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Minha extração da lição, da revista.</li>
+    <li class="flex items-start gap-2"><span class="text-accent-gold mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Oração e conclusão.</li>
+</ul>
+</div>
+</div>
+</div>
 <!-- Event 5 -->
-<div class="group cursor-pointer">
+<div class="group cursor-pointer flip-card" onclick="this.classList.toggle('flipped')">
+<div class="flip-card-inner h-full">
+<div class="flip-card-front h-full flex flex-col">
 <div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/5]">
 <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Church worship service congregation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS3fX8Z_OGiyHVgm1eCY8e11m7z8R44vqbzxmC3ot0QtA-nJbCTrBXoZuUrIsg4EKVONzglVBTPnHSG_qA2ZGpLtxyI61vAIsZfuEBE_OHes3EhsgV_n-tffFQh_132dnESnPoUWwmbFYFYbUzdZo28hovOr0KNfINH7jz4iddE07dUeiluCmxC22tHUJrkf9FJjU2bYmSYBrbJvcQYlqgO81XgMCxELSONKeQvWpTRvq7Wf2_LqJzuu78Qd7yyNF-n81dZcWeiHQl"/>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Open Bible minimal aesthetic" src="biblia_minimalista.png"/>
 <div class="absolute bottom-4 left-4 z-20">
 <span class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Presencial</span>
 </div>
 </div>
 <h4 class="text-xl font-bold dark:text-white mb-1 group-hover:text-primary transition-colors">Culto</h4>
 <p class="text-slate-500 dark:text-slate-400 text-sm">Domingos às 18h00</p>
+</div>
+<div class="flip-card-back rounded-2xl border border-border-light dark:border-border-dark p-6 shadow-xl flex flex-col justify-center">
+<h4 class="text-lg font-bold text-primary mb-4 border-b border-primary/20 pb-2">Roteiro</h4>
+<ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Abertura.</li>
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Testemunhos e oportunidades</li>
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-sm">check_circle</span> Louvor.</li>
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Pregação.</li>
+    <li class="flex items-start gap-2"><span class="text-primary mt-0.5 material-symbols-outlined text-[16px]">check_circle</span> Oração de conclusão.</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 
